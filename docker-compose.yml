@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  cmak:
+    image: mailbyms/cmak
+    ports:
+      - "9000:9000"
+    environment:
+      - ZK_HOSTS=zookeeper:2181
+      - KAFKA_MANAGER_AUTH_ENABLED=true
+      - KAFKA_MANAGER_USERNAME=admin
+      - KAFKA_MANAGER_PASSWORD=admin
+
+networks:
+    default:
+        external:
+            name: mynetwork
